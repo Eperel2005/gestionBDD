@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .header {
+          padding: 20px;
+        }
+        .navigation {
+          text-align: center;
+          background-color: #444;
+          padding: 10px;
+        }
+        .navigation ul {
+          list-style-type: none;
+          padding: 0;
+        }
+        .navigation li {
+          display: inline-block;
+          margin-right: 10px;
+        }
+        .navigation li {
+          text-decoration: none;
+          color: white;
+          font-family: "Century Gothic", Arial, sans-serif;
+          font-size: 18px;
+          padding: 5px;
+        }
+        .navigation a {
+          text-decoration: none;
+          color: white;
+          font-family: "Century Gothic", Arial, sans-serif;
+          font-size: 18px;
+          padding: 5px;
+        }
+      </style>
+</head>
+<body>
+    <header class="header">
+        <div class="navigation">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'Busqueda' %}"> Productos</a></li>
+                    <li><a href="{% url 'Formulario' %}"> Recomendamos</a></li>
+                    {% if user.is_authenticated %}
+                    <li>Hola {{ user.username }}</li>
+                    <li><a href="{% url 'salir' %}"> Cerrar sesion</a></li>
+                    {% else %}
+    
+                    <li><a href="{% url 'ingresar' %}"> Iniciar Sesion </a></li>
+                    <li><a href="{% url 'registrar' %}"> Registrarse </a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>
